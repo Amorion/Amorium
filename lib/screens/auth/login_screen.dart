@@ -37,52 +37,63 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Login"),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                'Amorium will need to verify your phone number.',
-                style: TextStyle(fontSize: 24),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('+91'),
-                  const SizedBox(width: 10),
-                  SizedBox(
-                    width: size.width * 0.7,
-                    child: TextField(
-                      autofocus: true,
-                      controller: phoneController,
-                      decoration: const InputDecoration(
-                        hintText: 'phone number',
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
+          FocusManager.instance.primaryFocus!.unfocus();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Login"),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'Amorium will need to verify your phone number.',
+                  style: TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('+91'),
+                    const SizedBox(width: 10),
+                    SizedBox(
+                      width: size.width * 0.7,
+                      child: TextField(
+                        autofocus: true,
+                        controller: phoneController,
+                        decoration: const InputDecoration(
+                          hintText: 'phone number',
+                        ),
+                        keyboardType: TextInputType.phone,
                       ),
-                      keyboardType: TextInputType.phone,
+                    ),
+                  ],
+                ),
+                SizedBox(height: size.height * 0.6),
+                SizedBox(
+                  width: 90,
+                  child: ElevatedButton(
+                    onPressed: sendPhoneNumber,
+                    style: ElevatedButton.styleFrom(),
+                    child: const Text(
+                      "NEXT",
                     ),
                   ),
-                ],
-              ),
-              SizedBox(height: size.height * 0.6),
-              SizedBox(
-                width: 90,
-                child: ElevatedButton(
-                  onPressed: sendPhoneNumber,
-                  style: ElevatedButton.styleFrom(),
-                  child: const Text(
-                    "NEXT",
-                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
