@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "472893884062",
+    "project_id": "amorium-amorion",
+    "storage_bucket": "amorium-amorion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472893884062:android:7c7298daae5d3706611d8f",
+        "android_client_info": {
+          "package_name": "com.amorion.amorium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472893884062-9kmntehbbu2ekrpmopj2k6bs394f8882.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkcV_26qsL_-N3PFpFpK4mneYTbgoqgo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472893884062-9kmntehbbu2ekrpmopj2k6bs394f8882.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
