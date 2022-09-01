@@ -1,5 +1,5 @@
-# Amorioum
+# Amorium
 
 Spread Love!
 
-All you need is love, love is all you need.
+Dating app, just on steroids.
