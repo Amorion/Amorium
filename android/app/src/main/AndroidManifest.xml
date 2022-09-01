@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.amorioum.amorioum.amorioum">
+    package="com.amorion.amorium">
    <application
-        android:label="amorioum"
+        android:label="Amorium"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

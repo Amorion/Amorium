@@ -1,5 +1,6 @@
-import 'package:amorioum/screens/home_screen.dart';
+import 'package:amorium/screens/home/home_screen.dart';
+import 'package:flutter/material.dart';
 
-final routes = {
-  HomeScreen.routeName:(context)=> HomeScreen()
-};
+Route<dynamic> generateRoute(RouteSettings settings) {
+  return MaterialPageRoute(builder: (context) => HomeScreen());
+}

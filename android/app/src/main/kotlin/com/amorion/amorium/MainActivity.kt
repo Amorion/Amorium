@@ -1,4 +1,4 @@
-package com.amorioum.amorioum.amorioum
+package com.amorion.amorium
 
 import io.flutter.embedding.android.FlutterActivity
 

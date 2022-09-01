@@ -1,4 +1,5 @@
-import 'package:amorioum/routes.dart';
+import 'package:amorium/routes.dart';
+import 'package:amorium/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,13 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Amorium',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      initialRoute: '/',
-      routes: routes,
+      home: const HomeScreen(),
+      onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
 }
