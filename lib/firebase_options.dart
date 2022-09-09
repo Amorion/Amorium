@@ -69,6 +69,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '472893884062',
     projectId: 'amorium-amorion',
     storageBucket: 'amorium-amorion.appspot.com',
+    androidClientId: '472893884062-npd8hjf58v1hchb98nvclps2in2cmmrg.apps.googleusercontent.com',
     iosClientId: '472893884062-lard8s29gsngfjnu4i561n29j92o5ed0.apps.googleusercontent.com',
     iosBundleId: 'com.amorion.amorium',
   );

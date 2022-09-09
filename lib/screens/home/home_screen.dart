@@ -6,18 +6,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Hello there!")),
-      body: Center(
-        child: Text(
-          "Welcome back"
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (val) {},
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
-        ],
+      appBar: AppBar(title: const Text("Hello there!")),
+      body: const Center(
+        child: Text("Welcome back"),
       ),
     );
   }

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "472893884062-npd8hjf58v1hchb98nvclps2in2cmmrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amorion.amorium",
+            "certificate_hash": "532aa75b70a6be1b2fbfcd7273d9f632a3867429"
+          }
+        },
+        {
           "client_id": "472893884062-9kmntehbbu2ekrpmopj2k6bs394f8882.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "472893884062-9kmntehbbu2ekrpmopj2k6bs394f8882.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "472893884062-lard8s29gsngfjnu4i561n29j92o5ed0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.amorion.amorium"
+              }
             }
           ]
         }
