@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:amorium/common/utils/utils.dart';
 import 'package:amorium/models/user_model.dart';
+import 'package:amorium/screens/auth/user_photos_screen.dart';
 import 'package:amorium/screens/home/home_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -54,10 +53,8 @@ class UserInformationRepository {
       await firestore.collection('users').doc(uid).set(user.toMap());
 
       // ignore: use_build_context_synchronously
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (ctx) {
-          return const HomeScreen();
-        }),
+      Navigator.of(context).pushNamedAndRemoveUntil(
+        UserPhotosScreen.routeName,
         (route) => false,
       );
     } catch (e) {

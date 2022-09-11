@@ -2,6 +2,7 @@ import 'package:amorium/firebase_options.dart';
 import 'package:amorium/routes.dart';
 import 'package:amorium/screens/auth/login_screen.dart';
 import 'package:amorium/screens/auth/user_information_screen.dart';
+import 'package:amorium/screens/auth/user_photos_screen.dart';
 import 'package:amorium/screens/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class Amorium extends StatelessWidget {
     return MaterialApp(
       title: 'Amorium',
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: const UserPhotosScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
