@@ -1,21 +1,25 @@
+import 'package:amorium/common/utils/utils.dart';
 import 'package:amorium/controller/auth/user_information_controller.dart';
 import 'package:amorium/models/user_model.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-const List<String> genders = ['Male', 'Female', 'Non Binary'];
+const List<String> sexs = ['Male', 'Female', 'Non Binary'];
 
-class UserInformationScreen extends StatefulWidget {
+class UserInformationScreen extends ConsumerStatefulWidget {
   static const String routeName = '/user-information-screen';
   const UserInformationScreen({Key? key}) : super(key: key);
 
   @override
-  State<UserInformationScreen> createState() => _UserInformationScreenState();
+  ConsumerState<UserInformationScreen> createState() =>
+      _UserInformationScreenState();
 }
 
-class _UserInformationScreenState extends State<UserInformationScreen> {
+class _UserInformationScreenState extends ConsumerState<UserInformationScreen> {
   final _formKey = GlobalKey<FormState>();
-  String gender = '';
+  String sex = '';
   String preference = '';
 
   UserModel user = UserModel(
@@ -24,17 +28,26 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
     email: "",
     sex: "",
     preference: "",
-    phoneNumber: "",
-    profilePhoto: "",
+    phoneNumber: "X",
+    profilePhoto: "X",
   );
 
   void saveUserForm() {
-    _formKey.currentState!.save();
-    setState(() {
-      // user.phoneNumber =
-    });
-    // send data to repo here
-    print(user.toMap());
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      setState(() {
+        // user.phoneNumber =
+      });
+      ref.read(userInformationControllerProvider).sendUserData(
+            context: context,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            sex: user.sex,
+            preference: user.preference,
+          );
+      print(user.toMap());
+    }
   }
 
   @override
@@ -55,6 +68,12 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                   hintText: 'Enter your first name',
                   labelText: 'First Name',
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter a first name.";
+                  }
+                  return null;
+                },
                 onSaved: (newValue) {
                   user.firstName = newValue!;
                 },
@@ -65,6 +84,12 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                   hintText: 'Enter your last name',
                   labelText: 'Last Name',
                 ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter a last name.";
+                  }
+                  return null;
+                },
                 onSaved: (newValue) {
                   user.lastName = newValue!;
                 },
@@ -79,11 +104,20 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                 onSaved: (newValue) {
                   if (newValue != null) user.email = newValue;
                 },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Email cannot be empty";
+                  }
+                  if (!EmailValidator.validate(value)) {
+                    return "Enter a valid email.";
+                  }
+                  return null;
+                },
               ),
               DropdownButtonFormField(
-                hint: const Text("Select Gender"),
+                hint: const Text("Select sex"),
                 isDense: true,
-                items: genders
+                items: sexs
                     .map(
                       (e) => DropdownMenuItem(
                         value: e,
@@ -94,15 +128,24 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                 onChanged: (newValue) {
                   setState(
                     () {
-                      if (newValue != null) gender = newValue as String;
+                      if (newValue != null) sex = newValue as String;
                     },
                   );
+                },
+                validator: (value) {
+                  if (value == null) {
+                    return "Please select a sex";
+                  }
+                  return null;
+                },
+                onSaved: (newValue) {
+                  if (newValue != null) user.sex = sex;
                 },
               ),
               DropdownButtonFormField(
                 hint: const Text("Select Preference"),
                 isDense: true,
-                items: genders
+                items: sexs
                     .map(
                       (e) => DropdownMenuItem(
                         value: e,
@@ -116,6 +159,15 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
                       if (newValue != null) preference = newValue as String;
                     },
                   );
+                },
+                onSaved: (newValue) {
+                  if (newValue != null) user.preference = preference;
+                },
+                validator: (value) {
+                  if (value == null) {
+                    return "Please select a preference";
+                  }
+                  return null;
                 },
               ),
               CupertinoButton.filled(
