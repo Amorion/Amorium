@@ -1,3 +1,6 @@
+import 'package:amorium/common/screens/error_screen.dart';
+import 'package:amorium/common/screens/loader.dart';
+import 'package:amorium/controller/auth/auth_controller.dart';
 import 'package:amorium/firebase_options.dart';
 import 'package:amorium/routes.dart';
 import 'package:amorium/screens/auth/login_screen.dart';
@@ -20,14 +23,25 @@ void main() async {
   );
 }
 
-class Amorium extends StatelessWidget {
+class Amorium extends ConsumerWidget {
   const Amorium({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       title: 'Amorium',
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: ref.watch(userDataProvider).when(data: (user) {
+        if (user == null) {
+          return const LoginScreen();
+        }
+        return const HomeScreen();
+      }, error: (err, trace) {
+        return ErrorScreen(
+          error: err.toString(),
+        );
+      }, loading: () {
+        return const Loader();
+      }),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
