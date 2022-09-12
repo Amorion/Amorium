@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:amorium/screens/auth/widgets/photo_preview.dart';
 import 'package:amorium/screens/auth/widgets/photo_row.dart';
+import 'package:amorium/static/theme_data.dart';
 import 'package:flutter/material.dart';
 
 class UserPhotosScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _UserPhotosScreenState extends State<UserPhotosScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add your photos"),
+        backgroundColor: CustomTheme.primary,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -26,6 +28,9 @@ class _UserPhotosScreenState extends State<UserPhotosScreen> {
             int idx = e.key;
             File? value = e.value;
 
+            if (idx % 2 == 0) {
+              return Container();
+            }
             if (idx < 2) {
               return PhotoRow();
             }
