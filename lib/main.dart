@@ -27,7 +27,7 @@ class Amorium extends StatelessWidget {
     return MaterialApp(
       title: 'Amorium',
       debugShowCheckedModeBanner: false,
-      home: const UserPhotosScreen(),
+      home: const LoginScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }

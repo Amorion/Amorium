@@ -5,7 +5,15 @@ import 'package:amorium/common/widgets/touchable_opacity.dart';
 import 'package:flutter/material.dart';
 
 class PhotoPreview extends StatefulWidget {
-  const PhotoPreview({Key? key}) : super(key: key);
+  final File? imageTile;
+  final void Function(int, File) setImage;
+  final int index;
+  const PhotoPreview({
+    Key? key,
+    required this.imageTile,
+    required this.setImage,
+    required this.index,
+  }) : super(key: key);
 
   @override
   State<PhotoPreview> createState() => _PhotoPreviewState();
@@ -19,15 +27,18 @@ class _PhotoPreviewState extends State<PhotoPreview> {
     return TouchableOpacity(
       onTap: () async {
         image = await pickImageFromGallery(context);
-        setState(() {});
+        if (image != null) {
+          widget.setImage(widget.index, image!);
+          setState(() {});
+        }
       },
       child: Container(
         padding: const EdgeInsets.all(20),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(30),
           child: image == null
-              ? Image.network(
-                  'https://media.glamour.com/photos/62c451524cef9e141c95d93f/master/w_2560%2Cc_limit/1406845793',
+              ? Image.asset(
+                  'assets/images/logo.png',
                   height: 200,
                   width: 150,
                   fit: BoxFit.cover,

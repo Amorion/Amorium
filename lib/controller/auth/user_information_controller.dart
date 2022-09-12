@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:amorium/models/user_model.dart';
 import 'package:amorium/repository/auth/user_information_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -38,6 +40,15 @@ class UserInformationController {
       sex: sex,
       preference: preference,
       context: context,
+    );
+  }
+
+  Future<void> saveImages(
+      {required BuildContext context, required List<File?> images}) {
+    return userInformationRepository.saveImages(
+      images: images,
+      context: context,
+      ref: ref,
     );
   }
 }

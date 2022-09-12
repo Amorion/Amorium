@@ -40,27 +40,25 @@ flutter:
   fonts:
     - family: Gilroy
       fonts:
-        - asset: assets/fonts/Gilroy-Regular.ttf
-        - asset: assets/fonts/Gilroy-Italic.ttf
-          style: italic
-        - asset: assets/fonts/Gilroy-Bold.ttf
+        - asset: assets/fonts/gilroy/Gilroy-Regular.ttf
+        - asset: assets/fonts/gilroy/Gilroy-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Gilroy-BoldItalic.ttf
+        - asset: assets/fonts/gilroy/Gilroy-BoldItalic.ttf
           weight: 700
           style: italic
-        - asset: assets/fonts/Gilroy-Light.ttf
+        - asset: assets/fonts/gilroy/Gilroy-Light.ttf
           weight: 300
-        - asset: assets/fonts/Gilroy-LightItalic.ttf
+        - asset: assets/fonts/gilroy/Gilroy-LightItalic.ttf
           weight: 300
           style: italic
-        - asset: assets/fonts/Gilroy-Heavy.ttf
+        - asset: assets/fonts/gilroy/Gilroy-Heavy.ttf
           weight: 600
-        - asset: assets/fonts/Gilroy-HeavyItalic.ttf
+        - asset: assets/fonts/gilroy/Gilroy-HeavyItalic.ttf
           weight: 600
           style: italic
-        - asset: assets/fonts/Gilroy-Black.ttf
+        - asset: assets/fonts/gilroy/Gilroy-Black.ttf
           weight: 900
-        - asset: assets/fonts/Gilroy-BlackItalic.ttf
+        - asset: assets/fonts/gilroy/Gilroy-BlackItalic.ttf
           weight: 900
           style: italic
   #   - family: Trajan Pro

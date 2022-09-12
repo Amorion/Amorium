@@ -1,4 +1,3 @@
-import 'package:amorium/common/utils/utils.dart';
 import 'package:amorium/controller/auth/user_information_controller.dart';
 import 'package:amorium/models/user_model.dart';
 import 'package:email_validator/email_validator.dart';
@@ -35,9 +34,6 @@ class _UserInformationScreenState extends ConsumerState<UserInformationScreen> {
   void saveUserForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      setState(() {
-        // user.phoneNumber =
-      });
       ref.read(userInformationControllerProvider).sendUserData(
             context: context,
             firstName: user.firstName,
@@ -46,7 +42,6 @@ class _UserInformationScreenState extends ConsumerState<UserInformationScreen> {
             sex: user.sex,
             preference: user.preference,
           );
-      print(user.toMap());
     }
   }
 
