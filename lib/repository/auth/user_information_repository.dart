@@ -72,7 +72,6 @@ class UserInformationRepository {
   }) async {
     try {
       String uid = auth.currentUser!.uid;
-      print(uid);
       for (int i = 0; i < images.length; i++) {
         if (images[i] != null) {
           await ref
