@@ -14,15 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 1;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: const [
-            CardUser(),
-            BottomBar(),
-          ],
-        ),
-      ),
+    return const Scaffold(
+      body: CardUser(),
+      bottomNavigationBar: BottomBar(),
     );
   }
 }

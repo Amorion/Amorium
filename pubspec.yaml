@@ -23,6 +23,7 @@ dependencies:
   enough_giphy_flutter: ^0.3.0
   intl: ^0.17.0
   email_validator: ^2.1.17
+  expand_widget: ^2.1.0
 
 dev_dependencies:
   flutter_test:

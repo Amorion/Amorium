@@ -1,4 +1,5 @@
 import 'package:amorium/common/widgets/touchable_opacity.dart';
+import 'package:amorium/screens/home/widgets/custom_sliver.dart';
 import 'package:flutter/material.dart';
 
 class CardUser extends StatelessWidget {
@@ -8,69 +9,125 @@ class CardUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
+    return CustomScrollView(
+      slivers: [
+        const SliverPersistentHeader(
+          pinned: true,
+          delegate: CustomSliverAppBarDelegate(),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 40.0,
+              horizontal: 20.0,
+            ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Card(
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Image.network(
-                          'https://media.glamour.com/photos/62c451524cef9e141c95d93f/master/w_2560%2Cc_limit/1406845793',
-                          fit: BoxFit.cover,
-                        ),
+              borderRadius: BorderRadius.circular(40),
+              child: Container(
+                height: 400,
+                color: Colors.amber,
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 10,
+                ),
+                child: Column(
+                  children: [
+                    const Text(
+                      "About",
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontFamily: 'Gilroy',
+                        fontWeight: FontWeight.w900,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                      textAlign: TextAlign.center,
+                    ),
+                    const Spacer(),
+                    const Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontFamily: "Gilroy", fontWeight: FontWeight.w500),
+                    ),
+                    const Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
                           children: const [
                             Text(
-                              "Emma Watson, 30",
+                              "20",
                               style: TextStyle(
-                                fontSize: 40,
-                                fontFamily: 'Gilroy',
+                                fontSize: 28,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
-                              "She/her",
+                              "Age",
                               style: TextStyle(
-                                fontFamily: 'Gilroy',
+                                  fontFamily: "Gilroy",
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: const [
+                                Text(
+                                  "174",
+                                  style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text("cm"),
+                              ],
+                            ),
+                            const Text(
+                              "Height",
+                              style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Icon(
+                              Icons.female,
+                              size: 34,
+                            ),
+                            Text(
+                              "Gender",
+                              style: TextStyle(
+                                fontFamily: "Gilroy",
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
-          Positioned(
-            bottom: 10,
-            right: 10,
-            child: TouchableOpacity(
-              onTap: () {},
-              child: const CircleAvatar(
-                radius: 50,
-                child: Icon(
-                  Icons.diamond,
-                  size: 40,
-                ),
-              ),
-            ),
+        ),
+        SliverToBoxAdapter(
+          child: Container(
+            height: 300,
+            color: Colors.yellow,
           ),
-        ],
-      ),
+        ),
+        SliverToBoxAdapter(
+          child: Container(
+            height: 300,
+            color: Colors.green,
+          ),
+        ),
+      ],
     );
   }
 }
