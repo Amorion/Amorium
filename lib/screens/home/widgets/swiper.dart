@@ -1,3 +1,5 @@
+import 'package:amorium/common/widgets/touchable_opacity.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:swipe_cards/draggable_card.dart';
 import 'package:swipe_cards/swipe_cards.dart';
@@ -56,54 +58,55 @@ class _SwiperState extends State<Swiper> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: 550,
-            child: SwipeCards(
-              matchEngine: _matchEngine,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.center,
-                  color: _swipeItems[index].content.color,
-                  child: Text(
-                    _swipeItems[index].content.text,
-                    style: const TextStyle(fontSize: 100),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: size.height * 0.7,
+              child: Stack(
+                children: [
+                  SwipeCards(
+                    matchEngine: _matchEngine,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        alignment: Alignment.center,
+                        color: _swipeItems[index].content.color,
+                        child: Text(
+                          _swipeItems[index].content.text,
+                          style: const TextStyle(fontSize: 100),
+                        ),
+                      );
+                    },
+                    onStackFinished: () {
+                      print("It's over");
+                    },
+                    itemChanged: (SwipeItem item, int index) {
+                      print("item: ${item.content.text}, index: $index");
+                    },
+                    upSwipeAllowed: true,
+                    fillSpace: true,
                   ),
-                );
-              },
-              onStackFinished: () {
-                print("It's over");
-              },
-              itemChanged: (SwipeItem item, int index) {
-                print("item: ${item.content.text}, index: $index");
-              },
-              upSwipeAllowed: true,
-              fillSpace: true,
+                  Positioned(
+                    bottom: 10,
+                    right: 10,
+                    child: TouchableOpacity(
+                      onTap: () {},
+                      child: const CircleAvatar(
+                        radius: 40,
+                        child: Icon(
+                          CupertinoIcons.heart,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(
-                  onPressed: () {
-                    _matchEngine.currentItem?.nope();
-                  },
-                  child: const Text("Nope")),
-              TextButton(
-                  onPressed: () {
-                    _matchEngine.currentItem?.superLike();
-                  },
-                  child: const Text("Superlike")),
-              TextButton(
-                  onPressed: () {
-                    _matchEngine.currentItem?.like();
-                  },
-                  child: const Text("Like"))
-            ],
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

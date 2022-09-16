@@ -11,9 +11,9 @@ class CardUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        const SliverPersistentHeader(
+        SliverPersistentHeader(
           pinned: true,
-          delegate: CustomSliverAppBarDelegate(),
+          delegate: CustomSliverAppBarDelegate(context),
         ),
         const AboutBox(),
         SliverToBoxAdapter(

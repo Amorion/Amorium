@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-  const CustomSliverAppBarDelegate() : super();
-
+  BuildContext ctx;
+  CustomSliverAppBarDelegate(this.ctx) : super();
   @override
-  double get maxExtent => 700;
+  double get maxExtent => MediaQuery.of(ctx).size.height * 0.6;
 
   @override
   double get minExtent => 150;
@@ -25,7 +25,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
     final interpolatedBackgroundColor = Color.lerp(
       Colors.white,
-      Colors.green,
+      Colors.red,
       expendPercentage,
     );
     final interpolatedAlignment = Alignment.lerp(
