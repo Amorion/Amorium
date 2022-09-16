@@ -36,20 +36,23 @@ class _SwiperState extends State<Swiper> {
   @override
   void initState() {
     for (int i = 0; i < _names.length; i++) {
-      _swipeItems.add(SwipeItem(
+      _swipeItems.add(
+        SwipeItem(
           content: Content(text: _names[i], color: _colors[i]),
           likeAction: () {
-            print("like");
+            // TODO
           },
           nopeAction: () {
-            print("reject");
+            // TODO
           },
           superlikeAction: () {
-            print("Super like");
+            // TODO
           },
           onSlideUpdate: (SlideRegion? region) async {
-            print("Region $region");
-          }));
+            // TODO
+          },
+        ),
+      );
     }
 
     _matchEngine = MatchEngine(swipeItems: _swipeItems);
@@ -70,20 +73,57 @@ class _SwiperState extends State<Swiper> {
                   SwipeCards(
                     matchEngine: _matchEngine,
                     itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        alignment: Alignment.center,
-                        color: _swipeItems[index].content.color,
-                        child: Text(
-                          _swipeItems[index].content.text,
-                          style: const TextStyle(fontSize: 100),
+                      return Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: Card(
+                            child: Center(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: Image.network(
+                                      'https://media.glamour.com/photos/62c451524cef9e141c95d93f/master/w_2560%2Cc_limit/1406845793',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: const [
+                                        Text(
+                                          "Emma Watson, 30",
+                                          style: TextStyle(
+                                            fontSize: 40,
+                                            fontFamily: 'Gilroy',
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          "She/her",
+                                          style: TextStyle(
+                                            fontFamily: 'Gilroy',
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                       );
                     },
                     onStackFinished: () {
-                      print("It's over");
+                      // TODO
                     },
                     itemChanged: (SwipeItem item, int index) {
-                      print("item: ${item.content.text}, index: $index");
+                      // TODO
                     },
                     upSwipeAllowed: true,
                     fillSpace: true,
