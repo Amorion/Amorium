@@ -1,4 +1,3 @@
-import 'package:amorium/common/widgets/touchable_opacity.dart';
 import 'package:amorium/screens/home/widgets/about_box.dart';
 import 'package:amorium/screens/home/widgets/custom_sliver.dart';
 import 'package:flutter/material.dart';

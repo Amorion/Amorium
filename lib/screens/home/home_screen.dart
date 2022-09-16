@@ -1,5 +1,5 @@
 import 'package:amorium/screens/home/widgets/bottom_bar.dart';
-import 'package:amorium/screens/home/widgets/card_user.dart';
+import 'package:amorium/screens/home/widgets/swiper.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: CardUser(),
+      body: Swiper(),
       bottomNavigationBar: BottomBar(),
     );
   }
