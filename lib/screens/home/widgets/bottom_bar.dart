@@ -1,4 +1,5 @@
 import 'package:amorium/screens/auth/login_screen.dart';
+import 'package:amorium/screens/chat/chat_list_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,11 @@ class BottomBar extends ConsumerWidget {
             icon: const Icon(CupertinoIcons.heart),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                ChatListScreen.routeName,
+              );
+            },
             icon: const Icon(CupertinoIcons.chat_bubble),
           ),
         ],
