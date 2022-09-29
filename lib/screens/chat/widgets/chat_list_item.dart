@@ -2,8 +2,8 @@ import 'package:amorium/screens/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 class ChatListItem extends StatelessWidget {
-  final String userId;
-  const ChatListItem({Key? key, required this.userId}) : super(key: key);
+  final String matchID;
+  const ChatListItem({Key? key, required this.matchID}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class ChatListItem extends StatelessWidget {
       onTap: () {
         Navigator.of(context).pushNamed(
           ChatScreen.routeName,
-          arguments: userId,
+          arguments: matchID,
         );
       },
       child: Container(
@@ -22,7 +22,7 @@ class ChatListItem extends StatelessWidget {
           ),
         ),
         child: Text(
-          userId,
+          matchID,
         ),
       ),
     );

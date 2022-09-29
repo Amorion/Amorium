@@ -29,9 +29,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         builder: (ctx) => const ChatListScreen(),
       );
     case (ChatScreen.routeName):
-      final userId = settings.arguments as String;
+      final matchID = settings.arguments as String;
       return MaterialPageRoute(
-        builder: (ctx) => ChatScreen(recieverId: userId),
+        builder: (ctx) => ChatScreen(matchID: matchID),
       );
     default:
       return MaterialPageRoute(

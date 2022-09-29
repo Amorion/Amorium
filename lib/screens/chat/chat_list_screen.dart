@@ -22,10 +22,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            ChatListItem(userId: "Emma Watson"),
-            ChatListItem(userId: "Rachel Green"),
-            ChatListItem(userId: "Emma Stone"),
-            ChatListItem(userId: "Emilia Clark"),
+            ChatListItem(matchID: "EmmaWatson"),
           ],
         ),
       ),
