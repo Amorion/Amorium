@@ -4,7 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
   final String matchID;
-  const ChatScreen({Key? key, required this.matchID}) : super(key: key);
+  final String displayName;
+  const ChatScreen({
+    Key? key,
+    required this.matchID,
+    required this.displayName,
+  }) : super(key: key);
 
   static const String routeName = '/chat-screen';
   @override
@@ -43,7 +48,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.matchID),
+        title: Text(widget.displayName),
       ),
       body: Column(
         children: [
@@ -66,7 +71,7 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                       controller: _message,
                       decoration: const InputDecoration(
                         border: InputBorder.none,
-                        hintText: "Hello",
+                        hintText: "Type a message",
                       ),
                     ),
                   ),

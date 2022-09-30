@@ -1,3 +1,5 @@
+import 'package:amorium/models/chat_list_item_model.dart';
+import 'package:amorium/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,7 +22,7 @@ class ChatRepository {
   }) async {
     final String? senderID = auth.currentUser?.uid;
     await firestore.collection('chats').add({
-      "users": [senderID, recieverID],
+      "members": [senderID, recieverID],
     });
     return "";
   }
@@ -42,5 +44,31 @@ class ChatRepository {
       'senderID': senderID,
     });
     return "Sent";
+  }
+
+  Stream<List<ChatListItemModel>> getChats() {
+    return firestore
+        .collection('chats')
+        .where('members', arrayContains: auth.currentUser!.uid)
+        .snapshots()
+        .asyncMap((chatSnapshots) {
+      List<ChatListItemModel> chats = [];
+
+      for (var chatSnapshot in chatSnapshots.docs) {
+        chats.add(
+          ChatListItemModel.fromMap({
+            ...chatSnapshot.data(),
+            'matchID': chatSnapshot.id,
+          }),
+        );
+      }
+      return chats;
+    });
+  }
+
+  Future<UserModel> getUserFromID(String id) async {
+    final userDoc = await firestore.collection('users').doc(id).get();
+
+    return UserModel.fromMap(userDoc.data()!);
   }
 }

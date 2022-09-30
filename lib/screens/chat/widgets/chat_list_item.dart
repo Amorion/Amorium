@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 class ChatListItem extends StatelessWidget {
   final String matchID;
-  const ChatListItem({Key? key, required this.matchID}) : super(key: key);
+  final String displayName;
+  const ChatListItem(
+      {Key? key, required this.matchID, required this.displayName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,10 @@ class ChatListItem extends StatelessWidget {
       onTap: () {
         Navigator.of(context).pushNamed(
           ChatScreen.routeName,
-          arguments: matchID,
+          arguments: {
+            "matchID": matchID,
+            "displayName": displayName,
+          },
         );
       },
       child: Container(
@@ -22,7 +28,7 @@ class ChatListItem extends StatelessWidget {
           ),
         ),
         child: Text(
-          matchID,
+          displayName,
         ),
       ),
     );
