@@ -1,4 +1,5 @@
 import 'package:amorium/models/chat_list_item_model.dart';
+import 'package:amorium/models/message_model.dart';
 import 'package:amorium/models/user_model.dart';
 import 'package:amorium/repository/chat/chat_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,5 +38,9 @@ class ChatController {
 
   Future<UserModel> getUserFromID(String id) {
     return chatRepository.getUserFromID(id);
+  }
+
+  Stream<List<MessageModel>> getMessages(String match) {
+    return chatRepository.getMessages(match);
   }
 }

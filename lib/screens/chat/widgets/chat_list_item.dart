@@ -22,13 +22,17 @@ class ChatListItem extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.all(10),
+        width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(
             width: 1,
           ),
         ),
-        child: Text(
-          displayName,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            displayName,
+          ),
         ),
       ),
     );

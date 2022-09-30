@@ -1,4 +1,5 @@
 import 'package:amorium/models/chat_list_item_model.dart';
+import 'package:amorium/models/message_model.dart';
 import 'package:amorium/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -70,5 +71,26 @@ class ChatRepository {
     final userDoc = await firestore.collection('users').doc(id).get();
 
     return UserModel.fromMap(userDoc.data()!);
+  }
+
+  Stream<List<MessageModel>> getMessages(String match) {
+    return firestore
+        .collection('chats')
+        .doc(match)
+        .collection('messages')
+        .orderBy('timestamp')
+        .snapshots()
+        .asyncMap((messagesDocs) {
+      List<MessageModel> messages = [];
+
+      for (var messageDoc in messagesDocs.docs) {
+        messages.add(
+          MessageModel.fromMap(
+            messageDoc.data(),
+          ),
+        );
+      }
+      return messages;
+    });
   }
 }
