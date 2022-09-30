@@ -18,22 +18,39 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            height: size.height * 0.8,
-            child: modalOpened ? const Swiper() : const CardUser(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: const Text(
+          "AMORE",
+          style: TextStyle(
+            fontFamily: "Gilroy",
+            color: Colors.black,
           ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                modalOpened = !modalOpened;
-              });
-            },
-            child: const Text("Change"),
-          ),
-        ],
+          textAlign: TextAlign.center,
+        ),
+        leading: const Icon(
+          Icons.line_style,
+          color: Colors.black,
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: size.height * 0.7,
+              child: modalOpened ? const Swiper() : const CardUser(),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  modalOpened = !modalOpened;
+                });
+              },
+              child: const Text("Change"),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: const BottomBar(),
     );

@@ -1,13 +1,17 @@
+import 'package:amorium/screens/auth/login_screen.dart';
+import 'package:amorium/screens/chat/chat_list_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BottomBar extends StatelessWidget {
+class BottomBar extends ConsumerWidget {
   const BottomBar({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
       // alignment: Alignment.center,
@@ -20,8 +24,17 @@ class BottomBar extends StatelessWidget {
             icon: const Icon(CupertinoIcons.settings),
           ),
           IconButton(
-            onPressed: () {},
-            icon: const Icon(CupertinoIcons.star),
+            onPressed: () async {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (ctx) => const LoginScreen(),
+                ),
+                (route) => false,
+              );
+              FirebaseAuth.instance.signOut();
+            },
+            icon: const Icon(CupertinoIcons.person),
           ),
           IconButton(
             onPressed: () {},
@@ -32,8 +45,12 @@ class BottomBar extends StatelessWidget {
             icon: const Icon(CupertinoIcons.heart),
           ),
           IconButton(
-            onPressed: () {},
-            icon: const Icon(CupertinoIcons.person),
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                ChatListScreen.routeName,
+              );
+            },
+            icon: const Icon(CupertinoIcons.chat_bubble),
           ),
         ],
       ),
