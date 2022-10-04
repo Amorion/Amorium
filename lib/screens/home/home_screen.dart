@@ -1,5 +1,5 @@
+import 'package:amorium/screens/home/widgets/about_box.dart';
 import 'package:amorium/screens/home/widgets/bottom_bar.dart';
-import 'package:amorium/screens/home/widgets/card_user.dart';
 import 'package:amorium/screens/home/widgets/swiper.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 1;
-  bool modalOpened = true;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -39,16 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             SizedBox(
               height: size.height * 0.7,
-              child: modalOpened ? const Swiper() : const CardUser(),
+              child: const Swiper(),
             ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  modalOpened = !modalOpened;
-                });
-              },
-              child: const Text("Change"),
-            ),
+            AboutBox(),
           ],
         ),
       ),
