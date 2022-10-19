@@ -1,6 +1,7 @@
-import 'package:amorium/screens/home/widgets/about_box.dart';
+import 'package:amorium/screens/home/widgets/Appbar.dart';
 import 'package:amorium/screens/home/widgets/bottom_bar.dart';
 import 'package:amorium/screens/home/widgets/swiper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,30 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          "AMORE",
-          style: TextStyle(
-            fontFamily: "Gilroy",
-            color: Colors.black,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        leading: const Icon(
-          Icons.line_style,
-          color: Colors.black,
-        ),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const CustomAppBar(),
             SizedBox(
-              height: size.height * 0.7,
+              // decoration: BoxDecoration(border: Border.all(width: 4)),
+              height: size.height * 0.75,
               child: const Swiper(),
             ),
-            AboutBox(),
           ],
         ),
       ),
