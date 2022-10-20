@@ -27,7 +27,11 @@ class CustomAppBar extends StatelessWidget {
               ),
               Text(
                 "She/her",
-                style: TextStyle(color: Colors.black, fontSize: 16, fontFamily: "Gilroy", fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontFamily: "Gilroy",
+                    fontWeight: FontWeight.w500),
               )
             ],
           ),
