@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SentMessage extends StatelessWidget {
-  final String message;
+  final String? message;
   const SentMessage({Key? key, required this.message}) : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class SentMessage extends StatelessWidget {
                 ),
               ),
               child: Text(
-                message,
+                message!,
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 14,
@@ -39,7 +39,7 @@ class SentMessage extends StatelessWidget {
 }
 
 class RecievedMessage extends StatelessWidget {
-  final String message;
+  final String? message;
   const RecievedMessage({Key? key, required this.message}) : super(key: key);
 
   @override
@@ -62,7 +62,7 @@ class RecievedMessage extends StatelessWidget {
                 ),
               ),
               child: Text(
-                message,
+                message!,
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 14,

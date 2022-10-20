@@ -1,3 +1,4 @@
+import 'package:amorium/common/screens/loader.dart';
 import 'package:amorium/controller/chat/chat_controller.dart';
 import 'package:amorium/models/message_model.dart';
 import 'package:amorium/screens/chat/widgets/message_bubble.dart';
@@ -21,6 +22,7 @@ class ChatScreen extends ConsumerStatefulWidget {
 
 class _ChatScreenState extends ConsumerState<ChatScreen> {
   final TextEditingController _message = TextEditingController();
+  final ScrollController messageController = ScrollController();
 
   @override
   void initState() {
@@ -56,21 +58,27 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
       body: Column(
         children: [
           Expanded(
-            child: StreamBuilder(
+            child: StreamBuilder<List<MessageModel>>(
               stream:
                   ref.read(chatControllerProvider).getMessages(widget.matchID),
               builder: (context, snapshot) {
                 final userID = FirebaseAuth.instance.currentUser?.uid;
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Loader();
+                }
+
                 if (snapshot.hasData) {
-                  final messages = snapshot.data as List<MessageModel>;
+                  final messages = snapshot.data;
                   return ListView.builder(
-                    itemCount: messages.length,
+                    controller: messageController,
+                    itemCount: messages?.length,
                     itemBuilder: (context, index) {
-                      if (messages[index].senderID == userID) {
-                        return SentMessage(message: messages[index].message);
+                      if (messages?[index].senderID == userID) {
+                        return SentMessage(message: messages?[index].message);
                       } else {
                         return RecievedMessage(
-                            message: messages[index].message);
+                            message: messages?[index].message);
                       }
                     },
                   );

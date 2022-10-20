@@ -75,25 +75,37 @@ class _SwiperState extends State<Swiper> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ImageCard(size: size, imageUrl: 'https://media.glamour.com/photos/62c451524cef9e141c95d93f/master/w_2560%2Cc_limit/1406845793',),
+                    ImageCard(
+                      size: size,
+                      imageUrl:
+                          'https://media.glamour.com/photos/62c451524cef9e141c95d93f/master/w_2560%2Cc_limit/1406845793',
+                    ),
                     const PromptCard(
                       heading: "About Me",
                       content:
                           "I like catching bugs, sometimes also date them.",
                     ),
-                    ImageCard(size: size, imageUrl: 'https://i.pinimg.com/originals/64/95/d0/6495d05033eb2029300f4a6fe5151952.jpg'),
-                    const PromptCard(heading: "What i like?", content: "Singing, Gym, Swimming"),
+                    ImageCard(
+                        size: size,
+                        imageUrl:
+                            'https://i.pinimg.com/originals/64/95/d0/6495d05033eb2029300f4a6fe5151952.jpg'),
+                    const PromptCard(
+                        heading: "What i like?",
+                        content: "Singing, Gym, Swimming"),
+                    ImageCard(
+                        size: size,
+                        imageUrl:
+                            "https://i.pinimg.com/originals/64/95/d0/6495d05033eb2029300f4a6fe5151952.jpg")
                   ],
                 ),
               ),
             );
           },
           onStackFinished: () {
-            showSnackBar(context: context, content: "Stack Over, get a life bruh!");
+            showSnackBar(
+                context: context, content: "Stack Over, get a life bruh!");
           },
-          itemChanged: (SwipeItem item, int index) {
-
-          },
+          itemChanged: (SwipeItem item, int index) {},
           upSwipeAllowed: false,
           fillSpace: false,
         ),
