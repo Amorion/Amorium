@@ -1,7 +1,6 @@
-import 'package:amorium/screens/home/widgets/Appbar.dart';
+import 'package:amorium/screens/home/widgets/app_bar.dart';
 import 'package:amorium/screens/home/widgets/bottom_bar.dart';
 import 'package:amorium/screens/home/widgets/swiper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

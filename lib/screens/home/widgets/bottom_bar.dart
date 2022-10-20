@@ -38,7 +38,11 @@ class BottomBar extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(99999)),
             height: 60,
             width: 60,
-            child: const Icon(Icons.sync, color: Colors.white, size: 40,),
+            child: const Icon(
+              Icons.sync,
+              color: Colors.white,
+              size: 40,
+            ),
           ),
           IconButton(
             onPressed: () {
