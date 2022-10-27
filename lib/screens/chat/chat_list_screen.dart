@@ -153,7 +153,7 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
                         ],
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
@@ -191,14 +191,16 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TouchableOpacity(
+                  onTap: addChat,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,
                       vertical: 10,
                     ),
                     decoration: BoxDecoration(
-                        color: Colors.deepPurple,
-                        borderRadius: BorderRadius.circular(10)),
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     child: const Text(
                       "New Match!",
                       style: TextStyle(
@@ -209,7 +211,6 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
                       ),
                     ),
                   ),
-                  onTap: () {},
                 )
               ],
             ),
