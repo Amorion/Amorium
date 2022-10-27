@@ -68,7 +68,7 @@ flutter:
         - asset: assets/fonts/gilroy/Gilroy-HeavyItalic.ttf
           weight: 600
           style: italic
-        - asset: assets/fonts/gilroy/Gilroy-Black.ttf
+        - asset: assets/fonts/gilroy/Gilroy-ExtraBold.ttf
           weight: 900
         - asset: assets/fonts/gilroy/Gilroy-BlackItalic.ttf
           weight: 900

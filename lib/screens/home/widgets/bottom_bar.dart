@@ -1,5 +1,6 @@
 import 'package:amorium/screens/auth/login_screen.dart';
 import 'package:amorium/screens/chat/chat_list_screen.dart';
+import 'package:amorium/screens/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,17 +34,24 @@ class BottomBar extends ConsumerWidget {
             icon: const Icon(CupertinoIcons.star, size: 30),
           ),
           Container(
-            decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(99999)),
-            height: 60,
-            width: 60,
-            child: const Icon(
-              Icons.sync,
-              color: Colors.white,
-              size: 40,
-            ),
-          ),
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(99999)),
+              height: 60,
+              width: 60,
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    HomeScreen.routeName,
+                    (route) => false,
+                  );
+                },
+                icon: const Icon(
+                  Icons.sync,
+                  color: Colors.white,
+                  size: 40,
+                ),
+              )),
           IconButton(
             onPressed: () {
               Navigator.of(context).pushNamed(
