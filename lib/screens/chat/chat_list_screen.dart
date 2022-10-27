@@ -1,3 +1,4 @@
+import 'package:amorium/common/widgets/touchable_opacity.dart';
 import 'package:amorium/controller/chat/chat_controller.dart';
 import 'package:amorium/models/chat_list_item_model.dart';
 import 'package:amorium/screens/chat/widgets/chat_list_item.dart';
@@ -116,7 +117,7 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
           children: [
             appBar(),
             const SizedBox(
-              height: 40,
+              height: 10,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,43 +125,46 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
                 SizedBox(
                   height: size.height * 0.2,
                   child: Stack(
-                    alignment: Alignment.center,
+                    alignment: Alignment.bottomCenter,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            height: size.height * 0.15,
-                            width: size.height * 0.15,
+                            height: size.height * 0.13,
+                            width: size.height * 0.13,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.purple,
                             ),
                           ),
-                          Container(
-                            height: size.height * 0.15,
-                            width: size.height * 0.15,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.purple),
+                          const SizedBox(
+                            width: 50,
                           ),
                           Container(
-                            height: size.height * 0.15,
-                            width: size.height * 0.15,
+                            height: size.height * 0.13,
+                            width: size.height * 0.13,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.purple),
-                          )
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.purple,
+                            ),
+                          ),
                         ],
                       ),
-                      Positioned(
-                        // left: size.width * 0.3,
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         child: Container(
-                          height: size.height * 0.2,
-                          width: size.height * 0.2,
+                          height: size.height * 0.16,
+                          width: size.height * 0.16,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.deepPurple),
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.deepPurple,
+                          ),
                         ),
                       ),
                     ],
@@ -177,6 +181,35 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
                     fontWeight: FontWeight.w900,
                     fontFamily: "Gilroy",
                   ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TouchableOpacity(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 10,
+                    ),
+                    decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Text(
+                      "New Match!",
+                      style: TextStyle(
+                        fontFamily: "Gilroy",
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  onTap: () {},
                 )
               ],
             ),
