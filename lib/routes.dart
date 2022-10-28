@@ -1,6 +1,7 @@
 import 'package:amorium/common/screens/error_screen.dart';
 import 'package:amorium/screens/auth/login_screen.dart';
 import 'package:amorium/screens/auth/otp_screen.dart';
+import 'package:amorium/screens/auth/splash_screen.dart';
 import 'package:amorium/screens/auth/user_information_screen.dart';
 import 'package:amorium/screens/auth/user_photos_screen.dart';
 import 'package:amorium/screens/chat/chat_list_screen.dart';
@@ -35,6 +36,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           matchID: map['matchID']!,
           displayName: map['displayName']!,
         ),
+      );
+    case (SplashScreen.routeName):
+      return MaterialPageRoute(
+        builder: (ctx) => const SplashScreen(),
       );
     default:
       return MaterialPageRoute(

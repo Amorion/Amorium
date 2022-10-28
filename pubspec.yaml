@@ -26,6 +26,8 @@ dependencies:
   expand_widget: ^2.1.0
   swipe_cards: ^1.0.0
   flutter_launcher_icons: ^0.10.0
+  flutter_hooks: ^0.18.5+1
+  after_layout: ^1.2.0
 
 flutter_icons:
   android: true

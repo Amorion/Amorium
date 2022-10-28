@@ -173,15 +173,15 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  "Someone Liked you",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w900,
-                    fontFamily: "Gilroy",
-                  ),
-                )
+                // const Text(
+                //   "Someone Liked you",
+                //   style: TextStyle(
+                //     fontSize: 16,
+                //     color: Colors.black,
+                //     fontWeight: FontWeight.w900,
+                //     fontFamily: "Gilroy",
+                //   ),
+                // ),
               ],
             ),
             const SizedBox(

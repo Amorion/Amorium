@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:amorium/common/utils/utils.dart';
 import 'package:amorium/models/user_model.dart';
 import 'package:amorium/screens/auth/otp_screen.dart';
-import 'package:amorium/screens/auth/user_information_screen.dart';
+import 'package:amorium/screens/auth/splash_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +72,7 @@ class Authrepository {
 
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushNamedAndRemoveUntil(
-        UserInformationScreen.routeName,
+        SplashScreen.routeName,
         (route) => false,
       );
     } catch (e) {

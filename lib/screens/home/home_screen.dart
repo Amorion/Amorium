@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const CustomAppBar(),
             SizedBox(
-              // decoration: BoxDecoration(border: Border.all(width: 4)),
               height: size.height * 0.75,
               child: const Swiper(),
             ),

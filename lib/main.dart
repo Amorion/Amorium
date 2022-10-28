@@ -23,6 +23,7 @@ void main() async {
 
 class Amorium extends ConsumerWidget {
   const Amorium({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
